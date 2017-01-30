@@ -1,10 +1,12 @@
 package com.allstate.entities;
 
+import com.allstate.enums.Gender;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -15,7 +17,7 @@ public class Teacher {
     private int id;
     private int version;
     private String name;
-    private String gender;
+    private Gender gender;
     private int age;
     private Date created;
     private Date modified;
@@ -45,11 +47,13 @@ public class Teacher {
         this.name = name;
     }
 
-    @Column(nullable = false)
-    public String getGender() {
+    @Column(columnDefinition = "ENUM('MALE', 'FEMALE')")
+    @Enumerated(EnumType.STRING)
+    @NotNull
+    public Gender getGender() {
         return gender;
     }
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 

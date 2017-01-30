@@ -1,6 +1,7 @@
 use klassesTest;
 
-TRUNCATE TABLE teachers;
-
-INSERT INTO teachers (name, gender, age) VALUES
-  ('jotsna','female',23);
+INSERT INTO teachers (name, age, gender) VALUES
+  ('t1', 35, 'MALE'),
+  ('t2', 21, 'FEMALE'),
+  ('t3', 68, 'FEMALE'),
+  ('jotsna',23, 'FEMALE');

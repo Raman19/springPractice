@@ -21,14 +21,7 @@ public class Klass {
     private Date created;
     private Date modified;
     private Department department;
-
-//    public Klass(String name, Date semester, int credits, double fee, Department department) {
-//        this.name = name;
-//        this.semester = semester;
-//        this.credits = credits;
-//        this.fee = fee;
-//        this.department = department;
-//    }
+    private Teacher teacher;
 
     @Id
     @GeneratedValue
@@ -105,4 +98,12 @@ public class Klass {
         this.department = department;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "teacher_id")
+    public Teacher getTeacher() {
+        return teacher;
+    }
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 }
